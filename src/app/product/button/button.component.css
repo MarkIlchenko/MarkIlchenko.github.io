@@ -1,0 +1,16 @@
+.cart__prm-btn {
+  border-radius: 64px;
+  border: 2px solid #FFBD5C;
+  padding: 16px 24px;
+
+  color: #023A6B;
+  font: 700 14px/114.286% "Open Sans", sans-serif;
+  text-transform: uppercase;
+  background: unset;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.cart__prm-btn:hover {
+  background: #FFBD5C;
+}

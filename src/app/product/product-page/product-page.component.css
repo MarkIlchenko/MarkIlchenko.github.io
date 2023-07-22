@@ -1,8 +1,6 @@
-
-
 .container {
   max-width: 960px;
-  margin: 64px auto 0;
+  margin: 64px auto 64px;
 }
 
 .header-wrapper {
@@ -19,13 +17,30 @@ h1 {
   color: #F73;
 }
 
+.product-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+}
+
 @media only screen and (max-width: 769px) {
   .container {
     padding: 0 24px;
   }
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 412px) {
+  .cart__article-shape {
+    width: 100%;
+    border: 1px solid white;
+    margin-top: 32px;
+  }
   h1 {
     color: #023A6B;
     font-family: Eczar;
@@ -33,6 +48,9 @@ h1 {
     font-style: normal;
     font-weight: 700;
     line-height: 130%;
+  }
+  .product-list {
+    margin-top: 40px;
   }
   .special-word {
     color: #F73;
@@ -42,4 +60,5 @@ h1 {
     font-weight: 700;
     line-height: 130%;
   }
+
 }

@@ -1,7 +1,11 @@
 <section class="container">
+
   <h1 class="header-wrapper">
     {{sectionNameFirstPart}} <span class="special-word">{{specialWord}}</span>{{sectionNameSecondPart}}
   </h1>
-  <app-product-template></app-product-template>
+
+  <div class="product-list container-padding">
+    <app-product *ngFor="let item of productList" [data]="item"></app-product>
+  </div>
 
 </section>

@@ -1,0 +1,39 @@
+<article class="cart">
+  <div class="cart__img-container">
+    <img [src]="data.img" alt="Product2" class="cart__img">
+    <ng-container *ngIf="data.spinnerImg">
+      <img [src]="data.spinnerImg" alt="Product1" class="cart__stamp">
+    </ng-container>
+  </div>
+
+  <div class="cart__name-price-container">
+    <h2 class="cart__name">{{ data.name }}</h2>
+    <span class="cart__price">${{ data.discount }}</span>
+  </div>
+
+  <div class="cart__options-container">
+    <div class="cart__option-container">
+      <input type="radio" [name]="data.radioName" [id]="data.radioId1" value="250" checked>
+      <label [for]="data.radioId1" class="cart__label">250 ml</label>
+    </div>
+
+    <div class="cart__option-container">
+      <input type="radio" [name]="data.radioName" [id]="data.radioId2" value="500">
+      <label [for]="data.radioId2" class="cart__label">500 ML</label>
+    </div>
+
+    <div class="cart__option-container">
+      <input type="checkbox" [id]="data.checkBoxName" name="Sugar">
+      <label [for]="data.checkBoxName" class="cart__label">Add sugar</label>
+    </div>
+  </div>
+
+  <div class="cart__buttons-container">
+    <app-button (click)="sendMessage(data.index)" [index]="data.index">Выбрать</app-button>
+<!--    <button class="cart__prm-btn">Add to Cart</button>-->
+    <img src="assets/Info.svg" alt="Info" class="cart__info-button">
+  </div>
+
+  <div class="cart__article-shape"></div>
+</article>
+<div class="cart__article-shape"></div>
