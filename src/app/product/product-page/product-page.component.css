@@ -36,10 +36,11 @@ h1 {
 }
 
 @media only screen and (max-width: 412px) {
-  .cart__article-shape {
+  .cart-container {
     width: 100%;
-    border: 1px solid white;
-    margin-top: 32px;
+  }
+  .cart-container:last-child .cart__article-shape {
+    border: 1px solid blue;
   }
   h1 {
     color: #023A6B;

@@ -115,6 +115,8 @@ input[type="checkbox"]:checked::before {
   cursor: pointer;
 }
 
+
+
 .cart__prm-btn {
   border-radius: 64px;
   border: 2px solid #FFBD5C;
@@ -168,14 +170,29 @@ input[type="checkbox"]:checked::before {
     flex-wrap: wrap;
     align-items: center;
   }
+
   .cart:last-child {
     margin-top: 64px;
   }
+
 }
 
 @media only screen and (max-width: 412px) {
   .Logo {
     height: 34px;
+  }
+
+  .cart__stamp {
+    position: absolute;
+    right: 80px;
+    bottom: 16px;
+    animation: rotate 5600ms ease-out infinite;
+  }
+
+  .cart__article-shape {
+    width: 100%;
+    border: 1px solid white;
+    margin-top: 32px;
   }
 
   .container-padding {
