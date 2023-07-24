@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+// button.component.ts
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -6,10 +7,22 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-  @Output() public messageEvent = new EventEmitter<any>();
-  @Input() public index: any;
-  public addNewItem(index: any) {
+  @Output() public messageEvent = new EventEmitter<string>();
+
+  public addNewItem() {
+    const existingQuantity = localStorage.getItem('quantity');
+    let quantity = 0;
+    if (existingQuantity) {
+      quantity = parseInt(existingQuantity, 10);
+    }
+    quantity++;
+    localStorage.setItem('quantity', quantity.toString());
+    this.reloadPage();
+
     this.messageEvent.emit("Hey!");
-    console.log(`Hi! ${index}`);
+  }
+
+  private reloadPage() {
+    window.location.reload(); // Reload the page
   }
 }

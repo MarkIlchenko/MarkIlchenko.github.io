@@ -10,31 +10,30 @@
     <h2 class="cart__name">{{ data.name }}</h2>
     <span class="cart__price">${{ data.discount }}</span>
   </div>
+  <!-- Add form tag to wrap the form elements -->
+  <form #cartForm="ngForm">
+    <div class="cart__options-container">
+      <div class="cart__option-container">
+        <input type="radio" [name]="data.radioName" [id]="data.radioId1" value="250" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">
+        <label [for]="data.radioId1" class="cart__label">250 ml</label>
+      </div>
 
-  <div class="cart__options-container">
-    <div class="cart__option-container">
-      <input type="radio" [name]="data.radioName" [id]="data.radioId1" value="250" checked>
-      <label [for]="data.radioId1" class="cart__label">250 ml</label>
-    </div>
+      <div class="cart__option-container">
+        <input type="radio" [name]="data.radioName" [id]="data.radioId2" value="500" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">
+        <label [for]="data.radioId2" class="cart__label">500 ML</label>
+      </div>
 
-    <div class="cart__option-container">
-      <input type="radio" [name]="data.radioName" [id]="data.radioId2" value="500">
-      <label [for]="data.radioId2" class="cart__label">500 ML</label>
+      <div class="cart__option-container">
+        <input type="checkbox" [id]="data.checkBoxName" name="Sugar" [(ngModel)]="checkBoxValue" (change)="sendMessageSugar(data.index)">
+        <label [for]="data.checkBoxName" class="cart__label">Add sugar</label>
+      </div>
     </div>
-
-    <div class="cart__option-container">
-      <input type="checkbox" [id]="data.checkBoxName" name="Sugar">
-      <label [for]="data.checkBoxName" class="cart__label">Add sugar</label>
-    </div>
-  </div>
+  </form>
 
   <div class="cart__buttons-container">
-    <app-button (click)="sendMessage(data.index)" [index]="data.index">Add to cart</app-button>
-<!--    <button class="cart__prm-btn">Add to Cart</button>-->
+    <app-button (click)="addNewItem(data.index)" ></app-button>
     <img src="assets/Info.svg" alt="Info" class="cart__info-button">
   </div>
-
-
 
 </article>
 <div class="cart__article-shape"></div>

@@ -1,0 +1,15 @@
+.container {
+  max-width: 960px;
+  margin: 64px auto 64px;
+  padding: 0 24px;
+
+}
+
+.header-wrapper {
+  max-width: 720px;
+}
+
+h1 {
+  color: #023A6B;
+  font: 700 48px/120% Eczar, sans-serif;
+}

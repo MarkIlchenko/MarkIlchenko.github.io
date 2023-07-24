@@ -43,6 +43,17 @@ a {
   width: 40px;
 }
 
+.cart-item-count {
+  color: #FFF;
+  text-align: center;
+  font: 900 20px/20px Eczar;
+  text-transform: uppercase;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .shopping-cart-text {
   color: #023A6B;
   font: 700 16px/1 "Open Sans", sans-serif;

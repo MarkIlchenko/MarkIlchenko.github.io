@@ -227,11 +227,7 @@ input[type="checkbox"]:checked::before {
   }
 
   h2 {
+    font: 700 24px/120% Eczar;
     color: #023A6B;
-    font-family: Eczar;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
   }
 }

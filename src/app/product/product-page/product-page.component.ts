@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-product-page',
@@ -6,49 +6,62 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent {
-  public sectionNameFirstPart: any = `We believe a cup of coffee is one of the most important, simple`
-  public sectionNameSecondPart: any = `in life`
-  public specialWord: any = 'pleasures '
+
+  @Output() public messageEvent = new EventEmitter<any>();
+  @Input() public index: any;
 
 
-  public productList: any =
-    [
-      {
-        name: 'Extra Latte',
-        img: 'assets/Cup.png',
-        spinnerImg: 'assets/Stamp.svg',
-        discount: 8.99,
+  public addNewItem(index: any) {
+    this.messageEvent.emit("Hey!");
+    console.log(`Hi! ${index}`);
+    // this.cartClickCount++;
+  }
+  public sectionNameFirstPart: any = `We believe a cup of coffee is one of the most important, simple`;
+  public sectionNameSecondPart: any = `in life`;
+  public specialWord: any = 'pleasures ';
 
-        radioName: 'Late-ML',
-        radioId1: 'Late-option1',
-        radioId2: 'Late-option2',
+  @Input() data: any;
+  sendMessage(index: any) {
+    alert(`Вы выбрали кофе с index: ${index}`);
+  }
 
-        checkBoxName: 'Late-ML-myCheckbox',
-        index: 1
-      },
-      {
-        name: 'Cappuccino',
-        img: 'assets/Cup2.svg',
-        discount: 9.99,
+  public productList: any[] = [
+    {
+      name: 'Extra Latte',
+      img: 'assets/Cup.png',
+      spinnerImg: 'assets/Stamp.svg',
+      discount: 8.99,
 
-        radioName: 'Cappuccino-ML',
-        radioId1: 'Cappuccino-option1',
-        radioId2: 'Cappuccino-option2',
+      radioName: 'Late-ML',
+      radioId1: 'Late-option1',
+      radioId2: 'Late-option2',
 
-        checkBoxName: 'Cappuccino-ML-myCheckbox',
-        index: 2
-      },
-      {
-        name: 'Moccachino',
-        img: 'assets/Cup3.svg',
-        discount: 7.29,
+      checkBoxName: 'Late-ML-myCheckbox',
+      index: 1
+    },
+    {
+      name: 'Cappuccino',
+      img: 'assets/Cup2.svg',
+      discount: 9.99,
 
-        radioName: 'EX-Late-ML',
-        radioId1: 'EX-Late-option1',
-        radioId2: 'EX-Late-option2',
+      radioName: 'Cappuccino-ML',
+      radioId1: 'Cappuccino-option1',
+      radioId2: 'Cappuccino-option2',
 
-        checkBoxName: 'EX-Late-ML-myCheckbox',
-        index: 3
-      }
-    ];
+      checkBoxName: 'Cappuccino-ML-myCheckbox',
+      index: 2
+    },
+    {
+      name: 'Moccachino',
+      img: 'assets/Cup3.svg',
+      discount: 7.29,
+
+      radioName: 'EX-Late-ML',
+      radioId1: 'EX-Late-option1',
+      radioId2: 'EX-Late-option2',
+
+      checkBoxName: 'EX-Late-ML-myCheckbox',
+      index: 3
+    }
+  ];
 }

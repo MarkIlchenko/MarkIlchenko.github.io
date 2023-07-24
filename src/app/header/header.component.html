@@ -8,9 +8,11 @@
       </div>
     </a>
     <div>
-      <a href="#" class="shopping-cart-container">
+      <a href="#" class="shopping-cart-container" routerLink="/products">
         <div class="basket-img-container">
-          <img src="assets/Shopping-Cart.svg" alt="Shopping Cart" class="basket-icon">
+          <img [src]="cartClickCount > 0 ? 'assets/Shopping-Cart2.svg' : 'assets/Shopping-Cart.svg'"
+               alt="Shopping Cart" class="basket-icon">
+          <div class="cart-item-count">{{ cartClickCount }}</div>
         </div>
         <div class="shopping-cart-text">
           Shopping<br>
@@ -20,4 +22,5 @@
     </div>
   </nav>
 </header>
+
 

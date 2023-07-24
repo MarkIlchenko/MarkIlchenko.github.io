@@ -1,11 +1,11 @@
 <section class="container">
-
   <h1 class="header-wrapper">
-    {{sectionNameFirstPart}} <span class="special-word">{{specialWord}}</span>{{sectionNameSecondPart}}
+    {{ sectionNameFirstPart }} <span class="special-word">{{ specialWord }}</span>{{ sectionNameSecondPart }}
   </h1>
 
-  <div class="product-list container-padding">
-    <app-product *ngFor="let item of productList" [data]="item" class="cart-container"></app-product>
-  </div>
 
+
+  <div class="product-list container-padding">
+    <app-product *ngFor="let item of productList; let i = index" [data]="item" class="cart-container"></app-product>
+  </div>
 </section>
