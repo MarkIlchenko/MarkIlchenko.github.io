@@ -1,3 +1,15 @@
+<!--<section class="container">-->
+<!--  <h1 class="header-wrapper">-->
+<!--    {{ sectionNameFirstPart }} <span class="special-word">{{ specialWord }}</span>{{ sectionNameSecondPart }}-->
+<!--  </h1>-->
+<!--  {{ product?.name}}-->
+
+
+<!--  <div class="product-list container-padding">-->
+<!--    <app-product *ngFor="let item of productList; let i = index" [data]="item" class="cart-container"></app-product>-->
+<!--  </div>-->
+<!--  <button (click)="onSubmit()">Click!</button>-->
+<!--</section>-->
 <section class="container">
   <h1 class="header-wrapper">
     {{ sectionNameFirstPart }} <span class="special-word">{{ specialWord }}</span>{{ sectionNameSecondPart }}
@@ -5,7 +17,12 @@
 
 
 
+  {{data | json}}
+
+
   <div class="product-list container-padding">
-    <app-product *ngFor="let item of productList; let i = index" [data]="item" class="cart-container"></app-product>
+    <app-product *ngFor="let item of product; let i = index" [data]="item" class="cart-container"></app-product>
   </div>
+<!--  <button (click)="onSubmit()">Click!</button>-->
 </section>
+

@@ -7,6 +7,8 @@ import {ButtonComponent} from "./product/button/button.component";
 import {ProductComponent} from "./product/product/product.component";
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {ProductsService} from "./services/products.service";
 
 
 @NgModule({
@@ -18,9 +20,10 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

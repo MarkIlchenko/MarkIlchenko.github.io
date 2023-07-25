@@ -1,18 +1,24 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProductsService } from '../../services/products.service';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from '../../types/product.types';
+
+type Data = {
+  [ket: string]: string;
+};
 
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
-  styleUrls: ['./product-page.component.css']
+  styleUrls: ['./product-page.component.css'],
+  providers: [],
 })
 export class ProductPageComponent {
-
   @Output() public messageEvent = new EventEmitter<any>();
   @Input() public index: any;
 
-
   public addNewItem(index: any) {
-    this.messageEvent.emit("Hey!");
+    this.messageEvent.emit('Hey!');
     console.log(`Hi! ${index}`);
     // this.cartClickCount++;
   }
@@ -26,42 +32,19 @@ export class ProductPageComponent {
   }
 
   public productList: any[] = [
-    {
-      name: 'Extra Latte',
-      img: 'assets/Cup.png',
-      spinnerImg: 'assets/Stamp.svg',
-      discount: 8.99,
-
-      radioName: 'Late-ML',
-      radioId1: 'Late-option1',
-      radioId2: 'Late-option2',
-
-      checkBoxName: 'Late-ML-myCheckbox',
-      index: 1
-    },
-    {
-      name: 'Cappuccino',
-      img: 'assets/Cup2.svg',
-      discount: 9.99,
-
-      radioName: 'Cappuccino-ML',
-      radioId1: 'Cappuccino-option1',
-      radioId2: 'Cappuccino-option2',
-
-      checkBoxName: 'Cappuccino-ML-myCheckbox',
-      index: 2
-    },
-    {
-      name: 'Moccachino',
-      img: 'assets/Cup3.svg',
-      discount: 7.29,
-
-      radioName: 'EX-Late-ML',
-      radioId1: 'EX-Late-option1',
-      radioId2: 'EX-Late-option2',
-
-      checkBoxName: 'EX-Late-ML-myCheckbox',
-      index: 3
-    }
+    // Your product list data here
   ];
+
+  public product: Product[] | undefined; // Modify the type to an array of Product
+
+  constructor(private service: ProductsService, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe((value) => {
+      this.service.products = value['products'].products;
+      this.product = this.service.products;
+    });
+  }
+
+  onSubmit() {
+    console.log(this.service.products);
+  }
 }
