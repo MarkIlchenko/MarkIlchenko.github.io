@@ -15,15 +15,13 @@ export class HeaderComponent implements OnInit {
     this.cartItems = cartItemsData ? JSON.parse(cartItemsData) : [];
 
   }
-
-  calculateTotalQuantity(): number {
-
-    return this.cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0);
-  }
-
-  saveCartItemsToLocalStorage() {
-    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-
+  getLocalStorageItemCount(): number {
+    const articles = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    let itemCount = 0;
+    articles.forEach((item: any) => {
+      itemCount += item.quantity;
+    });
+    return itemCount;
   }
 
 
