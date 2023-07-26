@@ -265,7 +265,16 @@ input[type="checkbox"]:checked::before {
 
 .quanity-counter-product {
   z-index: 1;
-  width: 12px;
+  width: 32px;
+  text-align: center;
   background: unset;
   border: unset;
+}
+
+
+
+.custom-number-input::-webkit-inner-spin-button,
+.custom-number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
