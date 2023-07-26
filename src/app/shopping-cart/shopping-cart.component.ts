@@ -83,7 +83,7 @@ export class ShoppingCartComponent implements OnInit {
 
   calculateTotalPrice() {
     // Loop through the cart items and add up their prices
-    this.totalPrice = this.cartItems.reduce((total, item) => total + item.price, 0);
+    this.totalPrice = this.cartItems.reduce((total, item) => total + item.price + 5, 0);
 
     // Round the totalPrice to two decimal places
     this.totalPrice = parseFloat(this.totalPrice.toFixed(2));

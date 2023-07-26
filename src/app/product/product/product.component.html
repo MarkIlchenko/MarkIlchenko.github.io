@@ -17,22 +17,13 @@
         <input type="radio" [name]="data.radioName" [id]="data.radioId1" value="250" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">
         <label [for]="data.radioId1" class="cart__label">250 ml</label>
       </div>
-<!--      *ngIf="showQuantityContainer"-->
-      <div class="cart__quantity-container" >
-        <button type="button" (click)="addNewItem(decreaseQuantity())" class="quanity-counter-product-button button-left">
-          <img src="assets/Minus.svg" alt="Minus">
-        </button>
-        <input type="number" [(ngModel)]="quantity" name="quantity" class="quanity-counter-product">
-        <button type="button" (click)="addNewItem(increaseQuantity())" class="quanity-counter-product-button button-right">
-          <img src="assets/Plus.svg" alt="Minus">
-        </button>
-      </div>
+
+
 
       <div class="cart__option-container">
         <input type="radio" [name]="data.radioName" [id]="data.radioId2" value="500" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">
         <label [for]="data.radioId2" class="cart__label">500 ML</label>
       </div>
-      {{data.id}}
 
       <div class="cart__option-container">
         <input type="checkbox" [id]="data.checkBoxName" name="Sugar" [(ngModel)]="checkBoxValue" (change)="sendMessageSugar(data.index)">
@@ -44,8 +35,18 @@
 
   <div class="cart__buttons-container">
 <!--    <app-button (click)="addNewItem(data.index)" ></app-button>-->
-<!--    *ngIf="hideButton"-->
-    <button class="cart__prm-btn" (click)="addNewItem(data)" >Add to cart</button>
+
+    <div class="cart__quantity-container" *ngIf="showQuantityContainer">
+      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart-button button-left">
+        <img src="assets/Minus.svg" alt="Minus">
+      </button>
+      <input type="number" [(ngModel)]="quantity" name="quantity" class="quanity-counter-product">
+      <button type="button" (click)="addNewItem(increaseQuantity())" class="cart-button button-right">
+        <img src="assets/Plus.svg" alt="Minus">
+      </button>
+    </div>
+
+    <button class="cart__prm-btn" (click)="addNewItem(data)" *ngIf="hideButton">Add to cart</button>
     <img src="assets/Info.svg" alt="Info" class="cart__info-button">
   </div>
 

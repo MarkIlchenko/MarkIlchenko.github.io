@@ -12,6 +12,22 @@
 .cart {
   max-width: 624px;
 }
+.button-left {
+  left: 0;
+}
+
+.button-right {
+  right: 0;
+}
+
+.cart-button {
+  /*position: absolute;*/
+  z-index: 2;
+
+  background: unset;
+  border: unset;
+  cursor: pointer;
+}
 
 .cart__name-price-container {
   display: flex;
@@ -233,10 +249,23 @@ input[type="checkbox"]:checked::before {
 }
 
 .cart__quantity-container {
+  width: 141px;
+  display: flex;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  max-width: 141px;
+
+  border-radius: 50px;
+  border: 2px solid  #FFBD5C;
+  background: #FEF2E8;
+
 }
+
+
 .quanity-counter-product {
   z-index: 1;
-  width: 141px;
+  width: 12px;
+  background: unset;
+  border: unset;
 }
