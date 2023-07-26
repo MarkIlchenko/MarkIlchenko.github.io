@@ -1,5 +1,72 @@
-<section class="container">
-  <h1 class="header-wrapper">
-    {{sectionTitle}}
-  </h1>
-</section>
+<main *ngIf="cartItems.length > 0" class="cart-item-container">
+  <section class="container">
+    <h1 class="header-wrapper">
+      {{ sectionTitle }}
+    </h1>
+
+    <!-- Use *ngFor to iterate over the cartItems array -->
+    <div class="cart-container">
+
+      <div class="cart-items-container">
+        <div *ngFor="let cartItem of cartItems" class="cart-item">
+          <div class="cart-item-container-new">
+            <div>
+              <img [src]="cartItem.img" alt="Product" class="cart-item-img">
+            </div>
+
+            <div class="item-quantity">
+              <div class="cart-name-price">
+                <h3 class="cart-name">{{ cartItem.name }}</h3>
+                <p class="price cart-price">{{cartItem.price | number:'1.2-2'}}</p>
+              </div>
+              <div class="selected-option">
+                <div class="cart-item-option-container" *ngIf="cartItem.active === 'Sugar'">
+                  <img src="assets/Sugar.svg" alt="icon" class="ml-icon">
+                  {{cartItem.active}}
+                </div>
+                <div class="cart-item-option-container">
+                  <img src="assets/ML-icon.svg" alt="icon" class="ml-icon">
+                  {{ cartItem.radio }}
+                </div>
+              </div>
+            </div>
+            <div class="quanity-counter">
+              <button (click)="decreaseQuantity(cartItem)" class="cart-button"><img src="assets/Minus.svg" alt="Minus"></button>
+              <span class="quanity-number">{{ cartItem.quantity }}</span>
+              <button (click)="increaseQuantity(cartItem)" class="cart-button"><img src="assets/Plus.svg" alt="Plus"></button>
+            </div>
+            <button class="cart-remote cart-button" (click)="removeCartItem(cartItem)"><img src="assets/Delete.svg" alt="Delet"></button>
+          </div>
+          <div class="shape"></div>
+        </div>
+      </div>
+      <div class="checkout-container">
+        <h3 class="checkout">Checkout</h3>
+
+        <ul class="cart-price-container">
+          <li *ngFor="let cartItem of cartItems">
+            <p class="items-number-quanity">{{ cartItem.name }}<span class="cart-item-cost"><span class="cart-item-cost" *ngIf="cartItem.quantity > 2">{{ cartItem.quantity }}X </span>${{ cartItem.price }}</span></p>
+          </li>
+          <li class="cart-list">
+            <p class="cart-item-name">Delivery</p>
+            <span class="cart-item-cost">$5</span>
+          </li>
+        </ul>
+        <div class="list-shape"></div>
+        <p class="cart-total" id="cart-total">Delivery <span class="cart-item-cost">${{ totalPrice.toFixed(2) }}</span></p>
+        <button class="checkoutBtn">Buy</button>
+
+      </div>
+
+    </div>
+    <!-- Display a message if the cart is empty -->
+    <div *ngIf="cartItems.length === 0" class="cart-item-container">
+      <p>Your cart is empty.</p>
+    </div>
+  </section>
+
+
+
+  <p>Total Price: </p>
+
+</main>

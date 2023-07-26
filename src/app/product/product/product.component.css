@@ -231,3 +231,12 @@ input[type="checkbox"]:checked::before {
     color: #023A6B;
   }
 }
+
+.cart__quantity-container {
+  position: relative;
+  max-width: 141px;
+}
+.quanity-counter-product {
+  z-index: 1;
+  width: 141px;
+}

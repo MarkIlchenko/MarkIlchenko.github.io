@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { CartItem } from "../product/product/product.component";
 
 @Component({
   selector: 'app-header',
@@ -6,35 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public cartClickCount: number = 0;
-  public locastoraQuantity: number = 0;
+  @Input() cartItems: CartItem[] = []; // Use the CartItem interface here
 
   ngOnInit() {
-    // Update cartClickCount and locastoraQuantity when component initializes
-    this.updateQuantities();
-
-    // Add event listener to listen for changes in localStorage
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'quantity') {
-        this.cartClickCount = parseInt(event.newValue || '0', 10); // Use '0' as default if event.newValue is null
-        this.locastoraQuantity = this.cartClickCount; // Update locastoraQuantity as well
-      }
-    });
-  }
-
-  onAddToCartClicked(index: number) {
-    this.cartClickCount++;
-    localStorage.setItem('quantity', this.cartClickCount.toString());
-    this.updateQuantities();
+    // Retrieve the cartItems data from localStorage and parse it
+    const cartItemsData = localStorage.getItem('cartItems');
+    this.cartItems = cartItemsData ? JSON.parse(cartItemsData) : [];
 
   }
 
-  private updateQuantities() {
-    const existingQuantity = localStorage.getItem('quantity');
-    if (existingQuantity) {
-      this.cartClickCount = parseInt(existingQuantity, 10);
-      this.locastoraQuantity = this.cartClickCount; // Update locastoraQuantity as well
-    }
+  calculateTotalQuantity(): number {
+
+    return this.cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0);
+  }
+
+  saveCartItemsToLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
 
   }
 

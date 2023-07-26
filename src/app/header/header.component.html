@@ -10,9 +10,8 @@
     <div>
       <a href="#" class="shopping-cart-container" routerLink="/products">
         <div class="basket-img-container">
-          <img [src]="cartClickCount > 0 ? 'assets/Shopping-Cart2.svg' : 'assets/Shopping-Cart.svg'"
-               alt="Shopping Cart" class="basket-icon">
-          <div class="cart-item-count">{{ cartClickCount }}</div>
+          <img src="{{ cartItems.length > 0 ? 'assets/Shopping-Cart2.svg' : 'assets/Shopping-Cart.svg' }}" alt="Shopping Cart" class="basket-icon">
+          <div class="cart-item-count">{{ calculateTotalQuantity() }}</div>
         </div>
         <div class="shopping-cart-text">
           Shopping<br>
