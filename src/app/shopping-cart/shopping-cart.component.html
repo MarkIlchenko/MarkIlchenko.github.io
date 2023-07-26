@@ -20,13 +20,13 @@
                 <p class="price cart-price">{{cartItem.price | number:'1.2-2'}}</p>
               </div>
               <div class="selected-option">
-                <div class="cart-item-option-container" *ngIf="cartItem.active === 'Sugar'">
+                <div class="cart-item-option-container" *ngIf="cartItem.Sugar === 'Sugar'">
                   <img src="assets/Sugar.svg" alt="icon" class="ml-icon">
-                  {{cartItem.active}}
+                  {{cartItem.Sugar}}
                 </div>
                 <div class="cart-item-option-container">
                   <img src="assets/ML-icon.svg" alt="icon" class="ml-icon">
-                  {{ cartItem.radio }}
+                  {{ cartItem.ML }}
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
 
         <ul class="cart-price-container">
           <li *ngFor="let cartItem of cartItems">
-            <p class="items-number-quanity">{{ cartItem.name }}<span class="cart-item-cost"><span class="cart-item-cost" *ngIf="cartItem.quantity >= 2">{{ cartItem.quantity }}X </span>${{ cartItem.price }}</span></p>
+            <p class="items-number-quanity">{{ cartItem.name }}<span class="cart-item-cost"><span class="cart-item-cost" *ngIf="cartItem.quantity >= 2">{{ cartItem.quantity }}X </span>${{ cartItem.price | number:'1.2-2' }}</span></p>
           </li>
           <li class="cart-list">
             <p class="cart-item-name">Delivery</p>
@@ -67,6 +67,6 @@
 
 
 
-  <p>Total Price: </p>
+
 
 </main>

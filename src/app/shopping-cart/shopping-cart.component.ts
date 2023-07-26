@@ -64,7 +64,7 @@ export class ShoppingCartComponent implements OnInit {
   updateCartItemPrice(cartItem: CartItem) {
     // You can adjust the price calculation based on your needs
     // For example, you can multiply the base price by the quantity
-    cartItem.price = cartItem.price2 * cartItem.quantity;
+    cartItem.price = cartItem.priceBase * cartItem.quantity;
 
   }
 

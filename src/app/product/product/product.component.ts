@@ -5,10 +5,10 @@ export interface CartItem {
   name: string;
   img: string;
   quantity: number; // Make sure quantity is included in the CartItem interface
-  active: string;
-  radio: string;
+  Sugar: string;
+  ML: string;
   price: number;
-  price2: number;
+  priceBase: number;
 }
 
 interface ProductData {
@@ -89,7 +89,7 @@ export class ProductComponent {
     const cartItemsStr = localStorage.getItem('cartItems');
     let cartItems: CartItem[] = cartItemsStr ? JSON.parse(cartItemsStr) : [];
     this.cartItems = cartItems;
-    const existingItemIndex = cartItems.findIndex(item => item.name === productName && item.radio === radioValue);
+    const existingItemIndex = cartItems.findIndex(item => item.name === productName && item.ML === radioValue);
 
     if (existingItemIndex !== -1) {
       // If the item exists, update the quantity and price
@@ -97,7 +97,7 @@ export class ProductComponent {
       cartItems[existingItemIndex].price += productPrice * quantity;
     } else {
       // If the item doesn't exist, add it to the cart
-      cartItems.push({ name: productName, img: productImg, quantity: this.quantity, active: active, radio: radioValue, price: productPrice, price2: productPrice });
+      cartItems.push({ name: productName, img: productImg, quantity: this.quantity, Sugar: active, ML: radioValue, price: productPrice, priceBase: productPrice });
     }
 
     this.cartItems = cartItems; // Update the class property with the modified cartItems array
