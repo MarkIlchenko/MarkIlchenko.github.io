@@ -47,4 +47,6 @@ export class ProductPageComponent {
   onSubmit() {
     console.log(this.service.products);
   }
+
+
 }

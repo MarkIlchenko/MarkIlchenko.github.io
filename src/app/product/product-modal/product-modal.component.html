@@ -1,0 +1,39 @@
+<div class="modal-container">
+  <div class="modal-name-container">
+    <h2>{{data.name}}</h2>
+    <p class="modal-price">{{data.discount}}</p>
+  </div>
+  <img [src]="data.img" alt="Img" class="modal-img">
+  <ul class="modal-lists-container">
+    <div class="modal-shape"></div>
+    <li class="list-container">
+      Calories <span class="list-number">{{data.details.calories}}</span>
+    </li>
+    <li class="list-container">
+      Total Fat <span class="list-number">{{data.details.totalFat}}</span>
+    </li>
+    <li class="list-container">
+      Cholesterol <span class="list-number">{{data.details.cholesterol}}</span>
+    </li>
+    <li class="list-container">
+      Sodium <span class="list-number">{{data.details.sodium}}</span>
+    </li>
+    <li class="list-container">
+      Total Carbohydrate <span class="list-number">{{data.details.totalCarbohydrate}}</span>
+    </li>
+    <li class="list-container">
+      Protein <span class="list-number">{{data.details.protein}}</span>
+    </li>
+  </ul>
+  <ul class="modal-lists-container">
+    <div class="modal-shape"></div>
+    <li class="list-container">
+      Vitamin D <span class="list-number">{{data.details.vitaminD}}</span>
+    </li>
+    <li class="list-container">
+      Calcium <span class="list-number">{{data.details.cancium}}</span>
+    </li>
+  </ul>
+  <button class="prm-button" (click)="onCloseButtonClick()">Cool, Got It</button>
+</div>
+

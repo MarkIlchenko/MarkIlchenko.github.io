@@ -37,7 +37,7 @@
 <!--    <app-button (click)="addNewItem(data.index)" ></app-button>-->
 
     <div class="cart__quantity-container" *ngIf="showQuantityContainer">
-      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart-button button-left minus-btn">
+      <button type="button" (click)="decreaseQuantity()" class="cart-button button-left minus-btn">
         <img src="assets/Minus.svg" alt="Minus">
       </button>
       <input type="number" [(ngModel)]="quantity" name="quantity" class="quanity-counter-product custom-number-input">
@@ -47,9 +47,20 @@
     </div>
 
     <button class="cart__prm-btn" (click)="addNewItem(data)" *ngIf="hideButton">Add to cart</button>
-    <img src="assets/Info.svg" alt="Info" class="cart__info-button">
+    <img src="assets/Info.svg" alt="Info" class="cart__info-button" (click)="toggleModal()">
   </div>
 
 </article>
 <div class="cart__article-shape"></div>
+
+
+
+
+<div [@modalState]="modalState" class="modal" >
+  <app-product-modal  [data]="data" (buttonAction)="toggleModal()"></app-product-modal>
+</div>
+
+
+
+
 

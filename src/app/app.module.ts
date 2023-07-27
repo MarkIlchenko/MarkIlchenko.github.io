@@ -9,6 +9,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ProductsService} from "./services/products.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {ProductsService} from "./services/products.service";
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule
   ],
   providers: [ProductsService],

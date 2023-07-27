@@ -7,6 +7,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import {ButtonComponent} from "./button/button.component";
 import {ProductComponent} from "./product/product.component";
 import {FormsModule} from "@angular/forms";
+import { ProductModalComponent } from './product-modal/product-modal.component';
 
 
 @NgModule({
@@ -14,6 +15,8 @@ import {FormsModule} from "@angular/forms";
     ProductPageComponent,
     ButtonComponent,
     ProductComponent,
+    ProductModalComponent,
+    ProductModalComponent
   ],
   imports: [
     CommonModule,

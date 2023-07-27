@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 
 export interface CartItem {
@@ -19,7 +20,20 @@ interface ProductData {
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  animations: [
+    trigger('modalState', [
+      state('hidden', style({
+        opacity: 0,
+        transform: 'scale(0.8)'
+      })),
+      state('visible', style({
+        opacity: 1,
+        transform: 'scale(1)'
+      })),
+      transition('hidden <=> visible', animate('300ms ease-in-out'))
+    ])
+  ]
 })
 export class ProductComponent {
   @Input() data: any;
@@ -44,10 +58,7 @@ export class ProductComponent {
     this.cartItems = cartItemsData ? JSON.parse(cartItemsData) : [];
 
   }
-  saveCartItemsToLocalStorage() {
 
-    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
-  }
   increaseQuantity() {
     this.quantity++;
     this.saveCartItemsToLocalStorage();
@@ -57,11 +68,16 @@ export class ProductComponent {
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
+      this.saveCartItemsToLocalStorage();
     }
-    this.saveCartItemsToLocalStorage();
+
+    // this.saveCartItemsToLocalStorage();
     // this.addToCartClicked.emit(this.quantity);
   }
+  saveCartItemsToLocalStorage() {
 
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
 
 
 
@@ -91,6 +107,8 @@ export class ProductComponent {
     this.cartItems = cartItems;
     const existingItemIndex = cartItems.findIndex(item => item.name === productName && item.ML === radioValue);
 
+
+
     if (existingItemIndex !== -1) {
       // If the item exists, update the quantity and price
       cartItems[existingItemIndex].quantity += quantity;
@@ -101,6 +119,8 @@ export class ProductComponent {
     }
 
     this.cartItems = cartItems; // Update the class property with the modified cartItems array
+
+
 
     // Store the updated cartItems array in local storage
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -123,5 +143,10 @@ export class ProductComponent {
   }
 
 
+  modalState: 'hidden' | 'visible' = 'hidden';
 
+  // Add a method to toggle the modal visibility
+  toggleModal() {
+    this.modalState = this.modalState === 'hidden' ? 'visible' : 'hidden';
+  }
 }
