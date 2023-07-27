@@ -156,12 +156,12 @@ input[type="checkbox"]:checked::before {
 .minus-btn, .plus-btn {
   margin-top: 2px;
 }
-/*.minus-btn:hover  img{*/
-/*  content: url("/assets/Minus2.svg");*/
-/*}*/
-/*.plus-btn:hover  img{*/
-/*  content: url("/assets/Plus2.svg");*/
-/*}*/
+.minus-btn:hover  img{
+  content: url("/assets/Minus2.svg");
+}
+.plus-btn:hover  img{
+  content: url("/assets/Plus2.svg");
+}
 
 .cart__info-button {
   transition: 0.3s;

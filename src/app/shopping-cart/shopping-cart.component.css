@@ -212,6 +212,22 @@ h3 {
 
 
 }
+
+.minus-btn:hover  img{
+  content: url("/assets/Minus2.svg");
+}
+.plus-btn:hover  img{
+  content: url("/assets/Plus2.svg");
+}
+.cart-remote:hover  img{
+  content: url("/assets/Delete2.svg");
+}
+
+
+
+
+
+
 .cart-item-name {
   color: #023A6B;
   font: 700 14px/120% "Open Sans", sans-serif;
