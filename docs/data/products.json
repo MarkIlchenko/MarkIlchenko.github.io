@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "index": 1,
+      "id": "product1",
+      "name": "Extra Latte",
+      "img": "assets/Cup.png",
+      "spinnerImg": "assets/Stamp.svg",
+      "discount": 8.99,
+      "price250": 6.99,
+      "radioName": "Late-ML",
+      "radioId1": "Late-option1",
+      "radioId2": "Late-option2",
+      "checkBoxName": "Late-ML-myCheckbox",
+
+      "details": {
+        "calories": 65,
+        "totalFat": 2.4,
+        "cholesterol": 9.6,
+        "sodium": 55,
+        "totalCarbohydrate": 6.8,
+        "protein": 4.2,
+        "vitaminD": 1.4,
+        "cancium": 158
+      },
+      "cartItem2": true
+    },
+    {
+      "index": 2,
+      "id": "product2",
+      "name": "Cappuccino",
+      "img": "assets/Cup2.svg",
+
+      "discount": 9.99,
+      "price250": 7.29,
+      "radioName": "Cappuccino-ML",
+      "radioId1": "Cappuccino-option1",
+      "radioId2": "Cappuccino-option2",
+      "checkBoxName": "Cappuccino-ML-myCheckbox",
+      "details": {
+        "calories": 57,
+        "totalFat": 1.8,
+        "cholesterol": 7.3,
+        "sodium": 64,
+        "totalCarbohydrate": 5.5,
+        "protein": 3.9,
+        "vitaminD": 2,
+        "cancium": 169
+      },
+      "cartItem2": true
+    },
+    {
+      "index": 3,
+      "name": "Moccachino",
+      "img": "assets/Cup3.svg",
+
+      "discount": 7.29,
+      "price250": 5.29,
+      "radioName": "EX-Late-ML",
+      "radioId1": "EX-Late-option1",
+      "radioId2": "EX-Late-option2",
+      "checkBoxName": "EX-Late-ML-myCheckbox",
+      "details": {
+        "calories": 73,
+        "totalFat": 4.3,
+        "cholesterol": 12.1,
+        "sodium": 31,
+        "totalCarbohydrate": 8.8,
+        "protein": 2.1,
+        "vitaminD": 2.2,
+        "cancium": 111
+      },
+      "cartItem2": true
+    }
+  ]
+}
