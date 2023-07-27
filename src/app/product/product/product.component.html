@@ -37,11 +37,11 @@
 <!--    <app-button (click)="addNewItem(data.index)" ></app-button>-->
 
     <div class="cart__quantity-container" *ngIf="showQuantityContainer">
-      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart-button button-left">
+      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart-button button-left minus-btn">
         <img src="assets/Minus.svg" alt="Minus">
       </button>
       <input type="number" [(ngModel)]="quantity" name="quantity" class="quanity-counter-product custom-number-input">
-      <button type="button" (click)="addNewItem(increaseQuantity())" class="cart-button button-right">
+      <button type="button" (click)="addNewItem(increaseQuantity())" class="cart-button button-right plus-btn">
         <img src="assets/Plus.svg" alt="Minus">
       </button>
     </div>

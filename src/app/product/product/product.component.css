@@ -146,9 +146,22 @@ input[type="checkbox"]:checked::before {
   transition: 0.5s;
 }
 
-.cart__prm-btn:hover {
-  background: #FFBD5C;
+/*.minus-btn:hover img {*/
+/*  content: url("assets/Minus2.svg");*/
+/*}*/
+
+/*.plus-btn:hover img {*/
+/*  content: url("assets/Plus2.svg");*/
+/*}*/
+.minus-btn, .plus-btn {
+  margin-top: 2px;
 }
+/*.minus-btn:hover  img{*/
+/*  content: url("/assets/Minus2.svg");*/
+/*}*/
+/*.plus-btn:hover  img{*/
+/*  content: url("/assets/Plus2.svg");*/
+/*}*/
 
 .cart__info-button {
   transition: 0.3s;
@@ -250,8 +263,9 @@ input[type="checkbox"]:checked::before {
 
 .cart__quantity-container {
   width: 141px;
+
   display: flex;
-  height: fit-content;
+  height: 52px;
   justify-content: space-between;
   align-items: center;
   position: relative;

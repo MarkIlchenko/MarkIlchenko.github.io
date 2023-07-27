@@ -69,7 +69,12 @@ a {
 .shopping-cart-container img {
   margin-right: 16px;
 }
-
+@media only screen and (max-width: 429px) {
+  .shopping-cart-text {
+    display: none;
+    transition: 0.5s;
+  }
+}
 @media only screen and (max-width: 412px) {
   .logo-text {
     color: #023A6B;
@@ -91,8 +96,5 @@ a {
   .header-wrapper {
     max-width: unset;
   }
-  .shopping-cart-text {
-    display: none;
-    transition: 0.5s;
-  }
+
 }

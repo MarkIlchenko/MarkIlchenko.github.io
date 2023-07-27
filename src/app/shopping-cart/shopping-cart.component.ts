@@ -97,4 +97,16 @@ export class ShoppingCartComponent implements OnInit {
     // Emit the updated cartItems array
     this.cartItemsUpdated.emit(this.cartItems);
   }
+
+  isMinusHovered = false;
+  isPlusHovered = false;
+  onMinusHover(hovered: boolean) {
+    this.isMinusHovered = hovered;
+  }
+
+  onPlusHover(hovered: boolean) {
+    this.isPlusHovered = hovered;
+  }
+
+
 }

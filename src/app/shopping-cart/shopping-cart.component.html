@@ -14,30 +14,36 @@
               <img [src]="cartItem.img" alt="Product" class="cart-item-img">
             </div>
 
-            <div class="item-quantity">
-              <div class="cart-name-price">
-                <h3 class="cart-name">{{ cartItem.name }}</h3>
-                <p class="price cart-price">{{cartItem.price | number:'1.2-2'}}</p>
+            <div class="info-wrapper">
+              <div class="item-quantity">
+                <div class="cart-name-price">
+                  <h3 class="cart-name">{{ cartItem.name }}</h3>
+                  <p class="price cart-price">{{cartItem.price | number:'1.2-2'}}</p>
+                </div>
+                <div class="selected-option">
+                  <div class="cart-item-option-container">
+                    <img src="assets/ML-icon.svg" alt="icon" class="ml-icon">
+                    {{ cartItem.ML }}
+                  </div>
+                  <div class="cart-item-option-container" *ngIf="cartItem.Sugar === 'Sugar'">
+                    <img src="assets/Sugar.svg" alt="icon" class="ml-icon">
+                    {{cartItem.Sugar}}
+                  </div>
+
+                </div>
               </div>
-              <div class="selected-option">
-                <div class="cart-item-option-container" *ngIf="cartItem.Sugar === 'Sugar'">
-                  <img src="assets/Sugar.svg" alt="icon" class="ml-icon">
-                  {{cartItem.Sugar}}
+              <div class="buttons-container-new">
+                <div class="quanity-counter">
+                  <button (click)="decreaseQuantity(cartItem)" class="cart-button minus-btn"><img src="assets/Minus.svg" alt="Minus" ></button>
+                  <span class="quanity-number">{{ cartItem.quantity }}</span>
+                  <button (click)="increaseQuantity(cartItem)" class="cart-button plus-btn"><img src="assets/Plus.svg" alt="Plus"></button>
                 </div>
-                <div class="cart-item-option-container">
-                  <img src="assets/ML-icon.svg" alt="icon" class="ml-icon">
-                  {{ cartItem.ML }}
-                </div>
+                <button class="cart-remote cart-button" (click)="removeCartItem(cartItem)"><img src="assets/Delete.svg" alt="Delet"></button>
               </div>
             </div>
-            <div class="quanity-counter">
-              <button (click)="decreaseQuantity(cartItem)" class="cart-button"><img src="assets/Minus.svg" alt="Minus"></button>
-              <span class="quanity-number">{{ cartItem.quantity }}</span>
-              <button (click)="increaseQuantity(cartItem)" class="cart-button"><img src="assets/Plus.svg" alt="Plus"></button>
-            </div>
-            <button class="cart-remote cart-button" (click)="removeCartItem(cartItem)"><img src="assets/Delete.svg" alt="Delet"></button>
+
           </div>
-          <div class="shape"></div>
+          <div class="shape" ></div>
         </div>
       </div>
       <div class="checkout-container">
