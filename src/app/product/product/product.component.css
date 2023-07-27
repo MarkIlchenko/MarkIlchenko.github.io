@@ -326,7 +326,8 @@ input[type="checkbox"]:checked::before {
 
   top: 0;
   right: 0;
-
+  border-radius: 24px 0px 0px 24px;
+  box-shadow: 0px 0px 48px 0px rgba(0, 0, 0, 0.08);
   bottom: 0;
   background: #fff;
 }
