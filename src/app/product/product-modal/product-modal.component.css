@@ -16,6 +16,28 @@
   background: #fff;
 
 }
+
+.modal-img-container {
+  position: relative;
+}
+
+
+.cart__stamp {
+  position: absolute;
+  right: 40px;
+  bottom: 16px;
+  animation: rotate 5600ms ease-out infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
 h2 {
   color: #023A6B;
   font-family: Eczar;

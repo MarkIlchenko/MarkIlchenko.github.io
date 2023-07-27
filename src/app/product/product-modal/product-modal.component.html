@@ -3,9 +3,15 @@
     <h2>{{data.name}}</h2>
     <p class="modal-price">{{data.discount}}</p>
   </div>
-  <img [src]="data.img" alt="Img" class="modal-img">
+  <div class="modal-img-container">
+    <img [src]="data.img" alt="Img" class="modal-img">
+    <ng-container *ngIf="data.spinnerImg">
+      <img [src]="data.spinnerImg" alt="Product1" class="cart__stamp">
+    </ng-container>
+  </div>
   <ul class="modal-lists-container">
     <div class="modal-shape"></div>
+
     <li class="list-container">
       Calories <span class="list-number">{{data.details.calories}}</span>
     </li>

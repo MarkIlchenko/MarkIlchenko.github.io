@@ -8,7 +8,10 @@
 
   <div class="cart__name-price-container">
     <h2 class="cart__name">{{ data?.name }}</h2>
-    <span class="cart__price">${{ data.discount }}</span>
+<!--    <span class="cart__price">${{ data.discount }}</span>-->
+    <span class="cart__price">
+    ${{ radioValue === '250' ? data.price250 : data.discount }}
+  </span>
   </div>
   <!-- Add form tag to wrap the form elements -->
   <form #cartForm="ngForm">
@@ -37,7 +40,7 @@
 <!--    <app-button (click)="addNewItem(data.index)" ></app-button>-->
 
     <div class="cart__quantity-container" *ngIf="showQuantityContainer">
-      <button type="button" (click)="decreaseQuantity()" class="cart-button button-left minus-btn">
+      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart-button button-left minus-btn">
         <img src="assets/Minus.svg" alt="Minus">
       </button>
       <input type="number" [(ngModel)]="quantity" name="quantity" class="quanity-counter-product custom-number-input">
