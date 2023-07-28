@@ -127,8 +127,15 @@ h2 {
   border-radius: 64px;
   border: 2px solid #F73;
   margin-top: 80px;
+  transition: 0.5s;
 
 }
+.prm-button:hover {
+  background: #FF7733;
+  color: #fff;
+  border-color: #FF7733;
+}
+
 .modal {
   padding: 48px 20px 48px 40px;
   z-index: 2;

@@ -147,6 +147,10 @@ input[type="checkbox"]:checked::before {
   transition: 0.5s;
 }
 
+.cart__prm-btn:hover {
+  background: #FFBD5C;
+  border-color: #FFBD5C;
+}
 /*.minus-btn:hover img {*/
 /*  content: url("assets/Minus2.svg");*/
 /*}*/
@@ -158,10 +162,10 @@ input[type="checkbox"]:checked::before {
   margin-top: 4px;
 }
 .minus-btn:hover  img{
-  content: url("/assets/Minus2.svg");
+  content: url("/assets/Minus3.svg");
 }
 .plus-btn:hover  img{
-  content: url("/assets/Plus2.svg");
+  content: url("/assets/Plus3.svg");
 }
 
 .cart__info-button {
@@ -273,7 +277,7 @@ input[type="checkbox"]:checked::before {
 
   border-radius: 50px;
   border: 2px solid  #FFBD5C;
-  background: #FEF2E8;
+  background: #FFBD5C;
 
 }
 
@@ -284,6 +288,7 @@ input[type="checkbox"]:checked::before {
   text-align: center;
   background: unset;
   border: unset;
+  outline: none;
 }
 
 

@@ -25,7 +25,6 @@ export interface CartItem {
 interface ProductData {
   name: string;
   img: string;
-  // Add more properties if needed
 }
 @Component({
   selector: 'app-product',
@@ -35,15 +34,16 @@ interface ProductData {
     trigger('modalState', [
       state('hidden', style({
         opacity: 0,
-        transform: 'scale(0.8)',
+        transform: 'translateX(100%)', // Выезжает с правого бока
         display: 'none'
       })),
       state('visible', style({
         opacity: 1,
-        transform: 'scale(1)',
+        transform: 'translateX(0)', // Возвращение на исходную позицию
         display: 'block'
       })),
-      transition('hidden <=> visible', animate('300ms ease-in-out'))
+      transition('hidden => visible', animate('220ms linear')),
+      transition('visible => hidden', animate('220ms linear')),
     ])
   ]
 })
