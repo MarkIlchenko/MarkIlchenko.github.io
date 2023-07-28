@@ -1,4 +1,4 @@
-<main *ngIf="cartItems.length > 0" class="cart-item-container">
+<main *ngIf="cartItems.length > 0; else emptyCartMessage" class="cart-item-container">
   <section class="container">
     <h1 class="header-wrapper">
       {{ sectionTitle }}
@@ -66,13 +66,14 @@
 
     </div>
     <!-- Display a message if the cart is empty -->
-    <div *ngIf="cartItems.length === 0" class="cart-item-container">
-      <p>Your cart is empty.</p>
-    </div>
+
+<!--    <div *ngIf="cartItems.length <= 0" class="cart-item-container">-->
+<!--      <p>Your cart is empty.</p>-->
+<!--    </div>-->
   </section>
-
-
-
-
-
 </main>
+<ng-template #emptyCartMessage>
+  <div class="cart-item-container empty-state">
+    <h3>Your cart is empty.</h3>
+  </div>
+</ng-template>

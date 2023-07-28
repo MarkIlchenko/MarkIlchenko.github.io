@@ -35,11 +35,13 @@ interface ProductData {
     trigger('modalState', [
       state('hidden', style({
         opacity: 0,
-        transform: 'scale(0.8)'
+        transform: 'scale(0.8)',
+        display: 'none'
       })),
       state('visible', style({
         opacity: 1,
-        transform: 'scale(1)'
+        transform: 'scale(1)',
+        display: 'block'
       })),
       transition('hidden <=> visible', animate('300ms ease-in-out'))
     ])
