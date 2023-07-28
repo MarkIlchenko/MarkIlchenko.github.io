@@ -22,6 +22,7 @@
   }
   .cart-item {
     width: 100%;
+    margin-top: 28px;
   }
 
   .info-wrapper {
@@ -43,6 +44,19 @@
   }
   .cart-container, .info-wrapper {
     flex-direction: column;
+  }
+  .cart-item-img {
+    width: 76px;
+    height: 60px;
+  }
+  .cart-item-container-new:first-child {
+    margin-top: 0;
+  }
+  .cart-item-container-new {
+    align-items: start;
+  }
+  .cart-item:last-child .shape {
+    border: 0;
   }
   /*.cart-container {*/
   /*  display: unset;*/
