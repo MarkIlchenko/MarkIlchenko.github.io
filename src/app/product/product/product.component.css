@@ -155,7 +155,7 @@ input[type="checkbox"]:checked::before {
 /*  content: url("assets/Plus2.svg");*/
 /*}*/
 .minus-btn, .plus-btn {
-  margin-top: 2px;
+  margin-top: 4px;
 }
 .minus-btn:hover  img{
   content: url("/assets/Minus2.svg");
