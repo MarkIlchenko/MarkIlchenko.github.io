@@ -6,7 +6,7 @@ import {CartItem} from "../product/product/product.component";
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  styleUrls: ['./shopping-cart.component.css', './shopping-cart.component.media.css']
 })
 export class ShoppingCartComponent implements OnInit {
   sectionTitle: string = 'Shopping Cart';
