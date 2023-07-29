@@ -1,19 +1,42 @@
-<header class="nav-container">
-  <nav class="nav-bar-container">
-    <a href="#" class="logo-container">
-      <img src="assets/Logo-2.svg" alt="Logo" class="Logo">
-      <div class="logo-text">
+<!--<header class="nav-container">-->
+<!--  <nav class="nav-bar-container">-->
+<!--    <a href="#" class="logo-container">-->
+<!--      <img src="assets/Logo-2.svg" alt="Logo" class="Logo">-->
+<!--      <div class="logo-text">-->
+<!--        VELOCE<br>-->
+<!--        COFFEE SHOP-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <div>-->
+<!--      <a href="#" class="shopping-cart-container" routerLink="/products">-->
+<!--        <div class="basket-img-container">-->
+<!--          <img [src]="getLocalStorageItemCount() > 0 ? 'assets/Shopping-Cart2.svg' : 'assets/Shopping-Cart.svg'" alt="Shopping Cart" class="basket-icon">-->
+<!--          <div class="cart-item-count">{{ getLocalStorageItemCount() }}</div>-->
+<!--        </div>-->
+<!--        <div class="shopping-cart-text">-->
+<!--          Shopping<br>-->
+<!--          Cart-->
+<!--        </div>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </nav>-->
+<!--</header>-->
+<header class="header page__header">
+  <nav class="nav-container">
+    <a href="#" class="nav-bar__logo-container">
+      <img src="assets/Logo-2.svg" alt="Logo" class="logo">
+      <div class="nav-bar__logo-text">
         VELOCE<br>
         COFFEE SHOP
       </div>
     </a>
-    <div>
-      <a href="#" class="shopping-cart-container" routerLink="/products">
-        <div class="basket-img-container">
-          <img [src]="getLocalStorageItemCount() > 0 ? 'assets/Shopping-Cart2.svg' : 'assets/Shopping-Cart.svg'" alt="Shopping Cart" class="basket-icon">
-          <div class="cart-item-count">{{ getLocalStorageItemCount() }}</div>
+    <div class="nav-bar__switcher">
+      <a href="#" class="nav-bar__switcher-link" routerLink="/products">
+        <div class="nav-bar__switcher-img-container">
+          <img [src]="getLocalStorageItemCount() > 0 ? 'assets/Shopping-Cart2.svg' : 'assets/Shopping-Cart.svg'" alt="Shopping Cart" class="nav-bar__switcher-icon">
+          <div class="nav-bar__switcher-item-count">{{ getLocalStorageItemCount() }}</div>
         </div>
-        <div class="shopping-cart-text">
+        <div class="nav-bar__switcher-text">
           Shopping<br>
           Cart
         </div>
@@ -21,5 +44,4 @@
     </div>
   </nav>
 </header>
-
 

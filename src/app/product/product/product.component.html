@@ -1,3 +1,62 @@
+<!--<article class="cart">-->
+<!--  <div class="cart__img-container">-->
+<!--    <img [src]="data.img" alt="Product2" class="cart__img">-->
+<!--    <ng-container *ngIf="data.spinnerImg">-->
+<!--      <img [src]="data.spinnerImg" alt="Product1" class="cart__stamp">-->
+<!--    </ng-container>-->
+<!--  </div>-->
+
+<!--  <div class="cart__name-price-container">-->
+<!--    <h2 class="cart__name">{{ data?.name }}</h2>-->
+<!--    <span class="cart__price">-->
+<!--    ${{ radioValue === '250' ? data.price250 : data.discount }}-->
+<!--  </span>-->
+<!--  </div>-->
+<!--  <form #cartForm="ngForm">-->
+<!--    <div class="cart__options-container">-->
+<!--      <div class="cart__option-container">-->
+<!--        <input type="radio" [name]="data.radioName" [id]="data.radioId1" value="250" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">-->
+<!--        <label [for]="data.radioId1" class="cart__label">250 ml</label>-->
+<!--      </div>-->
+
+
+
+<!--      <div class="cart__option-container">-->
+<!--        <input type="radio" [name]="data.radioName" [id]="data.radioId2" value="500" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">-->
+<!--        <label [for]="data.radioId2" class="cart__label">500 ML</label>-->
+<!--      </div>-->
+
+<!--      <div class="cart__option-container">-->
+<!--        <input type="checkbox" [id]="data.checkBoxName" name="Sugar" [(ngModel)]="checkBoxValue" (change)="sendMessageSugar(data.index)">-->
+<!--        <label [for]="data.checkBoxName" class="cart__label">Add sugar</label>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </form>-->
+
+<!--  <div class="cart__buttons-container">-->
+
+
+<!--    <div class="cart__quantity-container" *ngIf="showQuantityContainer">-->
+<!--      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart-button button-left minus-btn">-->
+<!--        <img src="assets/Minus2.svg" alt="Minus">-->
+<!--      </button>-->
+<!--      <input type="number" [(ngModel)]="quantity" name="quantity" class="quanity-counter-product custom-number-input">-->
+<!--      <button type="button" (click)="addNewItem(increaseQuantity())" class="cart-button button-right plus-btn">-->
+<!--        <img src="assets/Plus2.svg" alt="Minus">-->
+<!--      </button>-->
+<!--    </div>-->
+<!--    <app-button  (click)="addNewItem(data)" *ngIf="hideButton"></app-button>-->
+<!--&lt;!&ndash;    <button class="cart__prm-btn" (click)="addNewItem(data)" *ngIf="hideButton">Add to cart</button>&ndash;&gt;-->
+<!--    <img src="assets/Info.svg" alt="Info" class="cart__info-button" (click)="toggleModal()">-->
+<!--  </div>-->
+
+<!--</article>-->
+<!--<div class="cart__article-shape"></div>-->
+
+<!--<div [@modalState]="modalState" class="modal" >-->
+<!--  <app-product-modal  [data]="data" (buttonAction)="toggleModal()"></app-product-modal>-->
+<!--</div>-->
 <article class="cart">
   <div class="cart__img-container">
     <img [src]="data.img" alt="Product2" class="cart__img">
@@ -8,20 +67,17 @@
 
   <div class="cart__name-price-container">
     <h2 class="cart__name">{{ data?.name }}</h2>
-<!--    <span class="cart__price">${{ data.discount }}</span>-->
     <span class="cart__price">
-    ${{ radioValue === '250' ? data.price250 : data.discount }}
-  </span>
+      ${{ radioValue === '250' ? data.price250 : data.discount }}
+    </span>
   </div>
-  <!-- Add form tag to wrap the form elements -->
+
   <form #cartForm="ngForm">
     <div class="cart__options-container">
       <div class="cart__option-container">
         <input type="radio" [name]="data.radioName" [id]="data.radioId1" value="250" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">
         <label [for]="data.radioId1" class="cart__label">250 ml</label>
       </div>
-
-
 
       <div class="cart__option-container">
         <input type="radio" [name]="data.radioName" [id]="data.radioId2" value="500" [(ngModel)]="radioValue" (change)="sendMessageRadioButton(data.index)">
@@ -31,36 +87,30 @@
       <div class="cart__option-container">
         <input type="checkbox" [id]="data.checkBoxName" name="Sugar" [(ngModel)]="checkBoxValue" (change)="sendMessageSugar(data.index)">
         <label [for]="data.checkBoxName" class="cart__label">Add sugar</label>
-
       </div>
     </div>
   </form>
 
   <div class="cart__buttons-container">
-<!--    <app-button (click)="addNewItem(data.index)" ></app-button>-->
-
     <div class="cart__quantity-container" *ngIf="showQuantityContainer">
-      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart-button button-left minus-btn">
+      <button type="button" (click)="addNewItem(decreaseQuantity())" class="cart__button button-left minus-btn">
         <img src="assets/Minus2.svg" alt="Minus">
       </button>
-      <input type="number" [(ngModel)]="quantity" name="quantity" class="quanity-counter-product custom-number-input">
-      <button type="button" (click)="addNewItem(increaseQuantity())" class="cart-button button-right plus-btn">
-        <img src="assets/Plus2.svg" alt="Minus">
+      <input type="number" [(ngModel)]="quantity" name="quantity" class="cart__quantity-counter-product custom-number-input">
+      <button type="button" (click)="addNewItem(increaseQuantity())" class="cart__button button-right plus-btn">
+        <img src="assets/Plus2.svg" alt="Plus">
       </button>
     </div>
-
-    <button class="cart__prm-btn" (click)="addNewItem(data)" *ngIf="hideButton">Add to cart</button>
+<!--    <app-button (click)="addNewItem(data)" *ngIf="hideButton"></app-button>-->
+     <button class="cart__prm-btn" (click)="addNewItem(data)" *ngIf="hideButton">Add to cart</button>
     <img src="assets/Info.svg" alt="Info" class="cart__info-button" (click)="toggleModal()">
   </div>
-
 </article>
+
 <div class="cart__article-shape"></div>
 
-
-
-
-<div [@modalState]="modalState" class="modal" >
-  <app-product-modal  [data]="data" (buttonAction)="toggleModal()"></app-product-modal>
+<div [@modalState]="modalState" class="modal">
+  <app-product-modal [data]="data" (buttonAction)="toggleModal()"></app-product-modal>
 </div>
 
 

@@ -1,4 +1,78 @@
-<main *ngIf="cartItems.length > 0; else emptyCartMessage" class="cart-item-container">
+<!--<main *ngIf="cartItems.length > 0; else emptyCartMessage" class="cart-item-container">-->
+<!--  <section class="container">-->
+<!--    <h1 class="header-wrapper">-->
+<!--      {{ sectionTitle }}-->
+<!--    </h1>-->
+
+<!--    &lt;!&ndash; Use *ngFor to iterate over the cartItems array &ndash;&gt;-->
+<!--    <div class="cart-container">-->
+
+<!--      <div class="cart-items-container">-->
+<!--        <div *ngFor="let cartItem of cartItems" class="cart-item">-->
+<!--          <div class="cart-item-container-new">-->
+<!--            <div>-->
+<!--              <img [src]="cartItem.img" alt="Product" class="cart-item-img">-->
+<!--            </div>-->
+
+<!--            <div class="info-wrapper">-->
+<!--              <div class="item-quantity">-->
+<!--                <div class="cart-name-price">-->
+<!--                  <h3 class="cart-name">{{ cartItem.name }}</h3>-->
+<!--                  <p class="price cart-price">{{cartItem.price | number:'1.2-2'}}</p>-->
+<!--                </div>-->
+<!--                <div class="selected-option">-->
+<!--                  <div class="cart-item-option-container">-->
+<!--                    <img src="assets/ML-icon.svg" alt="icon" class="ml-icon">-->
+<!--                    {{ cartItem.ML }}-->
+<!--                  </div>-->
+<!--                  <div class="cart-item-option-container" *ngIf="cartItem.Sugar === 'Sugar'">-->
+<!--                    <img src="assets/Sugar.svg" alt="icon" class="ml-icon">-->
+<!--                    {{cartItem.Sugar}}-->
+<!--                  </div>-->
+
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="buttons-container-new">-->
+<!--                <div class="quanity-counter">-->
+<!--                  <button (click)="decreaseQuantity(cartItem)" class="cart-button minus-btn"><img src="assets/Minus.svg" alt="Minus" ></button>-->
+<!--                  <span class="quanity-number">{{ cartItem.quantity }}</span>-->
+<!--                  <button (click)="increaseQuantity(cartItem)" class="cart-button plus-btn"><img src="assets/Plus.svg" alt="Plus"></button>-->
+<!--                </div>-->
+<!--                <button class="cart-remote cart-button" (click)="removeCartItem(cartItem)"><img src="assets/Delete.svg" alt="Delet"></button>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--          <div class="shape" ></div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="checkout-container">-->
+<!--        <h3 class="checkout">Checkout</h3>-->
+
+<!--        <ul class="cart-price-container">-->
+<!--          <li *ngFor="let cartItem of cartItems">-->
+<!--            <p class="items-number-quanity">{{ cartItem.name }}<span class="cart-item-cost"><span class="cart-item-cost" *ngIf="cartItem.quantity >= 2">{{ cartItem.quantity }}X </span>${{ cartItem.price | number:'1.2-2' }}</span></p>-->
+<!--          </li>-->
+<!--          <li class="cart-list">-->
+<!--            <p class="cart-item-name">Delivery</p>-->
+<!--            <span class="cart-item-cost">$5</span>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <div class="list-shape"></div>-->
+<!--        <p class="cart-total" id="cart-total">Delivery <span class="cart-item-cost">${{ totalPrice.toFixed(2) }}</span></p>-->
+<!--        <button class="checkoutBtn">To Pay</button>-->
+
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </section>-->
+<!--</main>-->
+<!--<ng-template #emptyCartMessage>-->
+<!--  <div class="cart-item-container empty-state">-->
+<!--    <h3>Your cart is empty.</h3>-->
+<!--  </div>-->
+<!--</ng-template>-->
+<main *ngIf="cartItems.length > 0; else emptyCartMessage" class="cart-item-container cart-item-container--main">
   <section class="container">
     <h1 class="header-wrapper">
       {{ sectionTitle }}
@@ -8,72 +82,76 @@
     <div class="cart-container">
 
       <div class="cart-items-container">
-        <div *ngFor="let cartItem of cartItems" class="cart-item">
-          <div class="cart-item-container-new">
+        <div *ngFor="let cartItem of cartItems" class="cart-item cart-item--main">
+          <div class="cart-item-container-new cart-item__container-new">
             <div>
-              <img [src]="cartItem.img" alt="Product" class="cart-item-img">
+              <img [src]="cartItem.img" alt="Product" class="cart-item-img cart-item__img">
             </div>
 
-            <div class="info-wrapper">
-              <div class="item-quantity">
-                <div class="cart-name-price">
-                  <h3 class="cart-name">{{ cartItem.name }}</h3>
-                  <p class="price cart-price">{{cartItem.price | number:'1.2-2'}}</p>
+            <div class="info-wrapper cart-item__info-wrapper">
+              <div class="item-quantity cart-item__item-quantity">
+                <div class="cart-name-price cart-item__name-price">
+                  <h3 class="cart-name cart-item__name">{{ cartItem.name }}</h3>
+                  <p class="price cart-price cart-item__price">{{cartItem.price | number:'1.2-2'}}</p>
                 </div>
-                <div class="selected-option">
-                  <div class="cart-item-option-container">
-                    <img src="assets/ML-icon.svg" alt="icon" class="ml-icon">
+                <div class="selected-option cart-item__selected-option">
+                  <div class="cart-item-option-container cart-item__option-container">
+                    <img src="assets/ML-icon.svg" alt="icon" class="ml-icon cart-item-option-container__ml-icon">
                     {{ cartItem.ML }}
                   </div>
-                  <div class="cart-item-option-container" *ngIf="cartItem.Sugar === 'Sugar'">
-                    <img src="assets/Sugar.svg" alt="icon" class="ml-icon">
+                  <div class="cart-item-option-container cart-item__option-container" *ngIf="cartItem.Sugar === 'Sugar'">
+                    <img src="assets/Sugar.svg" alt="icon" class="ml-icon cart-item-option-container__ml-icon">
                     {{cartItem.Sugar}}
                   </div>
-
                 </div>
               </div>
-              <div class="buttons-container-new">
-                <div class="quanity-counter">
-                  <button (click)="decreaseQuantity(cartItem)" class="cart-button minus-btn"><img src="assets/Minus.svg" alt="Minus" ></button>
-                  <span class="quanity-number">{{ cartItem.quantity }}</span>
-                  <button (click)="increaseQuantity(cartItem)" class="cart-button plus-btn"><img src="assets/Plus.svg" alt="Plus"></button>
+              <div class="buttons-container-new cart-item__buttons-container-new">
+                <div class="quanity-counter cart-item__quanity-counter">
+                  <button (click)="decreaseQuantity(cartItem)" class="cart-button minus-btn cart-button--minus-btn">
+                    <img src="assets/Minus.svg" alt="Minus">
+                  </button>
+                  <span class="quanity-number cart-item__quanity-number">{{ cartItem.quantity }}</span>
+                  <button (click)="increaseQuantity(cartItem)" class="cart-button plus-btn cart-button--plus-btn">
+                    <img src="assets/Plus.svg" alt="Plus">
+                  </button>
                 </div>
-                <button class="cart-remote cart-button" (click)="removeCartItem(cartItem)"><img src="assets/Delete.svg" alt="Delet"></button>
+                <button class="cart-remote cart-button cart-button--cart-remote" (click)="removeCartItem(cartItem)">
+                  <img src="assets/Delete.svg" alt="Delete">
+                </button>
               </div>
             </div>
-
           </div>
-          <div class="shape" ></div>
+          <div class="shape cart-item__shape"></div>
         </div>
       </div>
-      <div class="checkout-container">
-        <h3 class="checkout">Checkout</h3>
+      <div class="checkout-container cart-container__checkout-container">
+        <h3 class="checkout cart-container__checkout">Checkout</h3>
 
-        <ul class="cart-price-container">
-          <li *ngFor="let cartItem of cartItems">
-            <p class="items-number-quanity">{{ cartItem.name }}<span class="cart-item-cost"><span class="cart-item-cost" *ngIf="cartItem.quantity >= 2">{{ cartItem.quantity }}X </span>${{ cartItem.price | number:'1.2-2' }}</span></p>
+        <ul class="cart-price-container cart-container__price-container">
+          <li *ngFor="let cartItem of cartItems" class="cart-price-container__item">
+            <p class="items-number-quanity cart-price-container__item-name-quanity">
+              {{ cartItem.name }}
+              <span class="cart-item-cost cart-price-container__item-cost">
+                <span class="cart-item-cost cart-price-container__item-cost" *ngIf="cartItem.quantity >= 2">{{ cartItem.quantity }}X </span>
+                ${{ cartItem.price | number:'1.2-2' }}
+              </span>
+            </p>
           </li>
-          <li class="cart-list">
-            <p class="cart-item-name">Delivery</p>
-            <span class="cart-item-cost">$5</span>
+          <li class="cart-list cart-price-container__item">
+            <p class="cart-item-name cart-list__item-name">Delivery</p>
+            <span class="cart-item-cost cart-list__item-cost">$5</span>
           </li>
         </ul>
-        <div class="list-shape"></div>
-        <p class="cart-total" id="cart-total">Delivery <span class="cart-item-cost">${{ totalPrice.toFixed(2) }}</span></p>
-        <button class="checkoutBtn">To Pay</button>
-
+        <div class="list-shape cart-container__list-shape"></div>
+        <p class="cart-total cart-container__total" id="cart-total">Delivery <span class="cart-item-cost cart-container__total-cost">${{ totalPrice.toFixed(2) }}</span></p>
+        <button class="checkoutBtn cart-container__checkoutBtn">To Pay</button>
       </div>
-
     </div>
-    <!-- Display a message if the cart is empty -->
-
-<!--    <div *ngIf="cartItems.length <= 0" class="cart-item-container">-->
-<!--      <p>Your cart is empty.</p>-->
-<!--    </div>-->
   </section>
 </main>
+
 <ng-template #emptyCartMessage>
-  <div class="cart-item-container empty-state">
+  <div class="cart-item-container cart-item-container--empty-state">
     <h3>Your cart is empty.</h3>
   </div>
 </ng-template>

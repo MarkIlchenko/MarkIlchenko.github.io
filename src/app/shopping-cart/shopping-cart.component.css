@@ -7,8 +7,9 @@
   max-width: 720px;
 }
 
-.empty-state {
+.cart-item-container--empty-state {
   position: absolute;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
