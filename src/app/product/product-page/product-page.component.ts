@@ -20,7 +20,6 @@ export class ProductPageComponent {
   public addNewItem(index: any) {
     this.messageEvent.emit('Hey!');
     console.log(`Hi! ${index}`);
-    // this.cartClickCount++;
   }
   public sectionNameFirstPart: any = `We believe a cup of coffee is one of the most important, simple`;
   public sectionNameSecondPart: any = `in life`;
@@ -32,10 +31,9 @@ export class ProductPageComponent {
   }
 
   public productList: any[] = [
-    // Your product list data here
   ];
 
-  public product: Product[] | undefined; // Modify the type to an array of Product
+  public product: Product[] | undefined;
 
   constructor(private service: ProductsService, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.data.subscribe((value) => {

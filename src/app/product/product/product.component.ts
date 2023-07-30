@@ -1,21 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
-
-// export interface CartItem {
-//   name: string;
-//   img: string;
-//   quantity: number; // Make sure quantity is included in the CartItem interface
-//   Sugar: string;
-//   ML: string;
-//   price: number;
-//   priceBase: number;
-// }
-
 export interface CartItem {
   name: string;
   img: string;
-  quantity: number; // Make sure quantity is included in the CartItem interface
+  quantity: number;
   Sugar: string;
   ML: string;
   price: number;
@@ -34,12 +23,12 @@ interface ProductData {
     trigger('modalState', [
       state('hidden', style({
         opacity: 0,
-        transform: 'translateX(100%)', // Выезжает с правого бока
+        transform: 'translateX(100%)',
         display: 'none'
       })),
       state('visible', style({
         opacity: 1,
-        transform: 'translateX(0)', // Возвращение на исходную позицию
+        transform: 'translateX(0)',
         display: 'block'
       })),
       transition('hidden => visible', animate('220ms linear')),
@@ -71,7 +60,6 @@ export class ProductComponent {
 
   }
   decreaseQuantity() {
-    // Ensure the quantity cannot be less than 1
     if (this.quantity > 1) {
       this.quantity--;
       this.saveCartItemsToLocalStorage();
@@ -80,20 +68,12 @@ export class ProductComponent {
   increaseQuantity() {
     this.quantity++;
     this.saveCartItemsToLocalStorage();
-    // this.addToCartClicked.emit(this.quantity);
   }
-
-
-
-
-
 
   saveCartItemsToLocalStorage() {
 
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
-
-
 
   public cartItem2: any;
   showQuantityContainer = false;
@@ -122,10 +102,7 @@ export class ProductComponent {
     this.cartItems = cartItems;
     const existingItemIndex = cartItems.findIndex(item => item.name === productName && item.ML === radioValue && item.Sugar === active);
 
-
     const productIdNewTest = { name: this.data?.name, img: this.data?.img };
-
-
 
     if (existingItemIndex !== -1) {
       // If the item exists, update the quantity and price
@@ -133,66 +110,13 @@ export class ProductComponent {
       this.cartItems[existingItemIndex].price =
         this.cartItems[existingItemIndex].priceBase * this.quantity;
     } else {
-      // If the item doesn't exist, add it to the cart
-      // cartItems.push({ name: productName, img: productImg, quantity: this.quantity, Sugar: active, ML: radioValue, price: productPrice, priceBase: productPrice });
       cartItems.push({ name: this.data?.name, price: productPrice, priceBase: productPrice, img: this.data?.img, quantity: this.quantity, Sugar: active, ML: radioValue });
     }
 
-    this.cartItems = cartItems; // Update the class property with the modified cartItems array
+    this.cartItems = cartItems;
 
-
-
-    // Store the updated cartItems array in local storage
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }
-
-
-  // addNewItem(index: any) {
-  //
-  //   const clickTest = this.showQuantityContainer = true;
-  //   const clickTest2 = this.hideButton = false;
-  //
-  //   const totalQuantity = this.cartItems.length;
-  //   this.addToCartClicked.emit(totalQuantity);
-  //   // window.location.reload();
-  //   const productName = this.data?.name;
-  //   const productSugar = this.data?.active;
-  //   const productImg = this.data?.img;
-  //   const quantity = 1;
-  //   const active = this.checkBoxValue ? 'Sugar' : 'Without Sugar';
-  //   const radioValue = this.radioValue === '250' ? '250' : '500';
-  //   const selectedRadioValue = this.radioValue;
-  //   const productPrice = selectedRadioValue === '250' ? this.data.price250 : this.data.discount;
-  //   const productPrice2 = selectedRadioValue === '250' ? this.data.price250 : this.data.discount;
-  //   const productPrice3 = productPrice + productPrice2;
-  //   const cartItemsStr = localStorage.getItem('cartItems');
-  //   let cartItems: CartItem[] = cartItemsStr ? JSON.parse(cartItemsStr) : [];
-  //   this.cartItems = cartItems;
-  //   const existingItemIndex = cartItems.findIndex(item => item.name === productName && item.ML === radioValue && item.Sugar === active);
-  //
-  //
-  //   const productIdNewTest = [this.data?.name, this.data?.price, this.data?.img, this.quantity, active, radioValue];
-  //
-  //
-  //
-  //   if (existingItemIndex !== -1) {
-  //     // If the item exists, update the quantity and price
-  //     this.cartItems[existingItemIndex].quantity = this.quantity;
-  //     this.cartItems[existingItemIndex].price =
-  //       this.cartItems[existingItemIndex].priceBase * this.quantity;
-  //   } else {
-  //     // If the item doesn't exist, add it to the cart
-  //     // cartItems.push({ name: productName, img: productImg, quantity: this.quantity, Sugar: active, ML: radioValue, price: productPrice, priceBase: productPrice });
-  //     cartItems.push({ name: this.data?.name, price: productPrice, priceBase: productPrice, img: this.data?.img, quantity: this.quantity, Sugar: active, ML: radioValue });
-  //   }
-  //
-  //   this.cartItems = cartItems; // Update the class property with the modified cartItems array
-  //
-  //
-  //
-  //   // Store the updated cartItems array in local storage
-  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  // }
 
   sendMessageRadioButton(index: any) {
     if (this.radioValue === '500') {
@@ -210,10 +134,8 @@ export class ProductComponent {
     }
   }
 
-
   modalState: 'hidden' | 'visible' = 'hidden';
 
-  // Add a method to toggle the modal visibility
   toggleModal() {
     this.modalState = this.modalState === 'hidden' ? 'visible' : 'hidden';
   }

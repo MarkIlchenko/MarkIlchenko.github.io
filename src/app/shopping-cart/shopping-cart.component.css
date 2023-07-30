@@ -336,5 +336,9 @@ h3 {
   }
 }
 
+.cart-button__remove {
+  width: 48px;
+  height: 48px;
+}
 
 
